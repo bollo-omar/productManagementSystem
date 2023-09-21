@@ -31,6 +31,34 @@ This TypeScript backend project implements the Vertical Slice architecture for e
   └── shared 📁
 
  ```
+## Installation
+
+Before running the project, make sure to install the necessary dependencies. Use the following command to install them:
+
+```bash
+npm install
+
+```
+
+## Running the Project
+
+### Development
+
+To run the project in development mode, use the following command:
+
+```bash
+npm run dev
+
+```
+
+### Production
+
+To run the project in production mode, use the following command:
+
+```bash
+npm start
+
+```
 ## Feel free to fork and add more features 
 
 ---
