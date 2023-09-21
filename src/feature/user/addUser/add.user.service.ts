@@ -3,7 +3,7 @@ import AddUserCommand from "@/feature/user/addUser/add.user.command";
 
 export const addUserService = (payload: AddUserCommand) => {
     return {
-        addUser: async () => {
+        add: async () => {
             return prisma.user.create({data: payload})
         }
     }

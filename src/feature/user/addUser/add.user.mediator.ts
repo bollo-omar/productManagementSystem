@@ -1,14 +1,16 @@
 import AddUserCommand from "@/feature/user/addUser/add.user.command";
 import { hash } from "bcryptjs";
 import {addUserService} from "@/feature/user/addUser/add.user.service";
+import logger from "@/shared/logger";
 
 export const addUserMediator = (command :AddUserCommand)=>{
     const {password, ...rest} = command
+    logger.info(command)
     return {
         execute : async ()=>{
             try {
                 return  {
-                    data : addUserService({...rest, password: (await hash(password, 10))})
+                    data : await addUserService({...rest, password: (await hash(password, 10))}).add()
                 }
             }
             catch (error : any) {

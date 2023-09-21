@@ -1,5 +1,5 @@
 {
-  "name": "product management system",
+  "name": "productmanagementsystem",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -64,6 +64,6 @@
     "@/shared": "dist/shared"
   },
   "prisma": {
-    "seed": "node prisma/seed.js"
+    "seed": "node seed.js"
   }
 }

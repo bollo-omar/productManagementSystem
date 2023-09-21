@@ -4,7 +4,12 @@ import {updateUserValidationSchema} from "@/feature/user/updateUser/update.user.
 import {updateUserMediator} from "@/feature/user/updateUser/update.user.mediator";
 
 export const updateUserHandler = asyncHandler(async (req, res) => {
-    const payload: UpdateUserCommand = {...req.body, id: req.params}
+    if (req.user.role !== "ADMIN") {
+        res.status(400)
+        throw new Error("You are nt allowed to access this resource")
+    }
+
+    const payload: UpdateUserCommand = {...req.body, id: parseInt(req.params.id)}
     const {error} = updateUserValidationSchema.validate(payload);
 
     if (error) {

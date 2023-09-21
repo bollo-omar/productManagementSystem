@@ -1,4 +1,4 @@
-import express, {Application} from "express";
+import express, {Application, json} from "express";
 import {IRoute} from "@/shared/interfaces/IRouter"
 import helmet from "helmet";
 import * as path from "path";
@@ -7,6 +7,8 @@ import cors from "cors";
 import morganMiddleware from "@/shared/middlewares/morgan.middleware";
 import {globalErrorHandler, notFoundErrorHandler } from "@/shared/middlewares/error.middleware";
 import logger from "./shared/logger";
+import {baseUrl} from "@/feature/user/user.routes";
+import {BASE_URL} from "@/shared/constants";
 
 export default class App{
     private readonly  express  : Application = express()
@@ -23,7 +25,7 @@ export default class App{
     
     private initRoutes(routes : IRoute[]){
         routes.map(route=>{
-            this.express.use("/api/vi", route.router)
+            this.express.use(BASE_URL, route.router)
         })
     }
     private initErrorHandler(){
@@ -36,8 +38,8 @@ export default class App{
         this.express.use(cors());
         this.express.use(morganMiddleware)
         this.express.use(express.json());
+        this.express.use(express.urlencoded({ extended: true }));
         this.express.use('/resource', express.static(path.join(__dirname, '../public')));
-        this.express.use(express.urlencoded({ extended: false }));
         this.express.use(compression())
     }
     listen(){

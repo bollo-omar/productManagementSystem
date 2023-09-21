@@ -4,6 +4,11 @@ import {addUserValidationSchema} from "@/feature/user/addUser/add.user.validatio
 import {addUserMediator} from "@/feature/user/addUser/add.user.mediator";
 
 export const addUserHandler = asyncHandler(async (req, res)=>{
+    if(req.user.role!=="ADMIN"){
+        res.status(400)
+        throw new Error("You are nt allowed to access this resource")
+    }
+
     const payload : AddUserCommand = req.body
     const {error} = addUserValidationSchema.validate(payload)
     
