@@ -25,7 +25,7 @@ This TypeScript backend project implements the Vertical Slice architecture for e
   │   │   ├── listProducts 📁
   │   │   ├── listProductsByCategory 📁
   │   │   ├── product.routes.ts 📄
-  │   │   ├── produt.model.ts 📄
+  │   │   ├── product.model.ts 📄
   │   │   └── product.ts 📄
   │   └── Categories 📁
   └── shared 📁
