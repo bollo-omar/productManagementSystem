@@ -14,11 +14,11 @@ This TypeScript backend project implements the Vertical Slice architecture for e
   │   ├── Users 📁
   │   ├── Products 📁
   │   │   ├── addProduct 📁
-  │   │   │   ├── add.user.command.ts 📄
-  │   │   │   ├── add.user.service.ts 📄
-  │   │   │   ├── add.user.mediator.ts 📄
-  │   │   │   ├── add.user.validation.schema.ts 📄
-  │   │   │   └── add.user.handler.ts 📄
+  │   │   │   ├── add.product.command.ts 📄
+  │   │   │   ├── add.product.service.ts 📄
+  │   │   │   ├── add.product.mediator.ts 📄
+  │   │   │   ├── add.product.validation.schema.ts 📄
+  │   │   │   └── add.product.handler.ts 📄
   │   │   ├── getProductById 📁
   │   │   ├── updateProduct 📁
   │   │   ├── deleteProduct 📁
